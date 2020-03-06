@@ -23,14 +23,19 @@ logging.config.dictConfig({
         }
     },
     "root": {
-        "level": "INFO", "handlers": ["console"]
+        "level": "INFO",
+    },
+    "loggers": {
+        "ml": {"level": "NOTSET", "handlers": ["console"]},
     }
 })
 
-from logging_tree import printout
-printout()
+# from logging_tree import printout
+# printout()
 
 import ml.server
 
-
-ml.server.run()
+def app(environ, start_response):
+    start_response("200 OK", [])
+    ml.server.run()
+    return [b'hello']
