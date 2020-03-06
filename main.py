@@ -27,6 +27,8 @@ logging.config.dictConfig({
     }
 })
 
+from logging_tree import printout
+printout()
 
 import ml.server
 
